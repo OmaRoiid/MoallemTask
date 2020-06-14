@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MoallemTask</string>
+    <string name="moallem">Moallem</string>
+    <string name="subjects">Subjects</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="continue_learning">Continue learning?</string>
+    <string name="physics">Physics</string>
+</resources>

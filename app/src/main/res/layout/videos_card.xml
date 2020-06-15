@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="20dp"
@@ -20,8 +21,8 @@
         app:layout_constraintTop_toTopOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            >
             <VideoView
                 android:id="@+id/video_view"
                 android:layout_width="230dp"

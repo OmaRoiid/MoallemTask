@@ -2,8 +2,8 @@ package com.example.moallemtask.ui.home
 
 import com.example.moallemtask.ui.home.IView
 
-class Presenter( iView: IView) {
-    var mIView: IView = iView
+class MainPresenter(iView: IView) {
+    private val mIView = iView
   fun initHomeScreenViews(){
       mIView.initSubjectsList()
       mIView.initVideosList()

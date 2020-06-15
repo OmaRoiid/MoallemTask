@@ -15,7 +15,6 @@ import com.example.moallemtask.ui.player.VideoPlayerActivity
 
 class MainActivity : AppCompatActivity(), IView,OnClickedListener {
     private  val TYPE_ONE="SUBJECT"
-    private  val TYPE_TWO="VIDEOS"
     private lateinit var mPresenter: Presenter
     private lateinit var mSubjectsAdapter: SubjectsAdapter
     private lateinit var mVideosAdapter: VideosAdapter
@@ -25,31 +24,29 @@ class MainActivity : AppCompatActivity(), IView,OnClickedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
          mPresenter= Presenter(this)
-        mPresenter.initHomeScreenViews()
+         mPresenter.initHomeScreenViews()
     }
-
     override fun initVideosList() {
         val videosList = findViewById<RecyclerView>(R.id.videos_list)
         videosList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        mVideosAdapter =VideosAdapter(this, mVideosList,this,TYPE_TWO,packageName)
+        mVideosAdapter =VideosAdapter(this, mVideosList,this)
         mVideosAdapter.notifyDataSetChanged()
         videosList.adapter = mVideosAdapter
     }
-
     override fun initSubjectsList() {
         val subjectsList = findViewById<RecyclerView>(R.id.subjects_list)
         subjectsList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        mSubjectsAdapter = SubjectsAdapter(this, mSubjectsNameList,this,TYPE_ONE)
+        mSubjectsAdapter = SubjectsAdapter(this, mSubjectsNameList,this)
         mSubjectsAdapter.notifyDataSetChanged()
         subjectsList.adapter = mSubjectsAdapter
     }
     override fun onClickedItem(position: Int, mType:String) {
         if(mType==TYPE_ONE) {
-            Toast.makeText(this, "Subject : ${mSubjectsAdapter.subjectsList[position]}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Subject : ${mSubjectsAdapter.subjectsList[position]}",Toast.LENGTH_SHORT).show()
         } else {
-            val onVideoClicked = mVideosAdapter.videosList[position]
+            val mClickedVideoPath = mVideosAdapter.videosList[position]
                 val mDisplayActivity = Intent(this, VideoPlayerActivity::class.java)
-                mDisplayActivity.putExtra("clickedVideo",onVideoClicked)
+                mDisplayActivity.putExtra("clickedVideo",mClickedVideoPath)
                 startActivity(mDisplayActivity)
         }
     }

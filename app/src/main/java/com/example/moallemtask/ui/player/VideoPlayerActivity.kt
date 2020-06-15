@@ -14,13 +14,13 @@ class VideoPlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
         //Passed video
-        val mClickedVideoRes = intent.extras!!.getInt("clickedVideo")
-         clickedVideoView = findViewById<VideoView>(R.id.clicked_video)
+        val mClickedVideoPath = intent.extras!!.getInt("clickedVideo")
+         clickedVideoView = findViewById(R.id.clicked_video)
          //Add Video Controller -> play, pause and stop video
         val mediaController = MediaController(this)
         mediaController.setMediaPlayer(clickedVideoView)
         clickedVideoView.setMediaController(mediaController)
-        mVideoUri= Uri.parse("android.resource://$packageName/$mClickedVideoRes")
+        mVideoUri= Uri.parse("android.resource://$packageName/$mClickedVideoPath")
         clickedVideoView.setVideoURI(mVideoUri)
         clickedVideoView.start()
         clickedVideoView.setOnPreparedListener { mp ->

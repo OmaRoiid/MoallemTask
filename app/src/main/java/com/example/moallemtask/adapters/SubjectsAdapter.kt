@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moallemtask.R
 import com.example.moallemtask.listeners.OnClickedListener
 
-class SubjectsAdapter(private val mContext : Context,  val subjectsList: List<String>, private val mOnClickedListener: OnClickedListener, private val mType:String) : RecyclerView.Adapter<SubjectsAdapter.MyViewHolder>() {
+class SubjectsAdapter(private val mContext : Context,  val subjectsList: List<String>, private val mOnClickedListener: OnClickedListener) : RecyclerView.Adapter<SubjectsAdapter.MyViewHolder>() {
+    private  val TYPE_ONE="SUBJECT"
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,7 +31,7 @@ class SubjectsAdapter(private val mContext : Context,  val subjectsList: List<St
             mSubjectTitle.text=subjectsList[position]
         }
         override fun onClick(v: View?) {
-           mOnClickedListener.onClickedItem(adapterPosition,mType)
+           mOnClickedListener.onClickedItem(adapterPosition,TYPE_ONE)
         }
     }
 }

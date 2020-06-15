@@ -10,7 +10,8 @@ import com.example.moallemtask.R
 import com.example.moallemtask.listeners.OnClickedListener
 
 
-class VideosAdapter(private val mContext : Context,  val videosList: List<Int>,private val mOnClickedListener: OnClickedListener,private val mType:String,private val mPackageName:String) : RecyclerView.Adapter<VideosAdapter.MyViewHolder>() {
+class VideosAdapter(private val mContext : Context,  val videosList: List<Int>,private val mOnClickedListener: OnClickedListener) : RecyclerView.Adapter<VideosAdapter.MyViewHolder>() {
+    private  val TYPE_TWO="VIDEOS"
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -28,15 +29,15 @@ class VideosAdapter(private val mContext : Context,  val videosList: List<Int>,p
             itemView.setOnClickListener(this)
         }
         fun bind(position: Int) {
-            // seekTo () to make video thumbnail image
-            val uri: Uri = Uri.parse( "android.resource://$mPackageName/${videosList[position]}")
+            // seekTo ()-> to make video thumbnail image
+            val uri: Uri = Uri.parse( "android.resource://${mContext.packageName}/${videosList[position]}")
             mVideoView.setVideoURI(uri)
             mVideoView.setOnPreparedListener {
                 mVideoView.seekTo(1)
             }
         }
         override fun onClick(v: View?) {
-            mOnClickedListener.onClickedItem(adapterPosition,mType)
+            mOnClickedListener.onClickedItem(adapterPosition,TYPE_TWO)
         }
 
 

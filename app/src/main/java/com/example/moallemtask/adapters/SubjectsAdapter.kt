@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moallemtask.R
+import com.example.moallemtask.store.homemodel.SubjectsModel
 
-class SubjectsAdapter(private val mContext : Context,  private val subjectsList: List<String>) : RecyclerView.Adapter<SubjectsAdapter.SubjectsViewHolder>() {
+class SubjectsAdapter(private val mContext : Context,  private val subjectsList: List<SubjectsModel>) : RecyclerView.Adapter<SubjectsAdapter.SubjectsViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -22,7 +23,7 @@ class SubjectsAdapter(private val mContext : Context,  private val subjectsList:
     inner class SubjectsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val mSubjectTitle=itemView.findViewById<TextView>(R.id.tv_subject_title)
         fun bind(position: Int){
-            mSubjectTitle.text=subjectsList[position]
+            mSubjectTitle.text=subjectsList[position].mSubjectName
         }
     }
 }

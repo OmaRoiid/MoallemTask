@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">MoallemTask</string>
-    <string name="moallem">Moallem</string>
+    <string name="app_name">Moallem</string>
     <string name="subjects">Subjects</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="continue_learning">Continue learning?</string>
     <string name="physics">Physics</string>
+    <string name="customtoggleicon">customToggleIcon</string>
+    <string name="card_icon">cardlogo</string>
+    <string name="play_video">playvideo</string>
 </resources>
